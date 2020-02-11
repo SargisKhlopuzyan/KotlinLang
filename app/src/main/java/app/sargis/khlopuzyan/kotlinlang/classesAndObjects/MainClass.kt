@@ -1,5 +1,7 @@
 package app.sargis.khlopuzyan.kotlinlang.classesAndObjects
 
+import app.sargis.khlopuzyan.kotlinlang.classesAndObjects.extensions.MyClass
+import app.sargis.khlopuzyan.kotlinlang.classesAndObjects.extensions.printCompanion
 import app.sargis.khlopuzyan.kotlinlang.classesAndObjects.propertiesAndFields.setterVisibility
 
 /**
@@ -13,5 +15,7 @@ fun main() {
 //    TEST = ""
 
 //    setterVisibility = ""
+
+    MyClass.printCompanion()
 
 }
