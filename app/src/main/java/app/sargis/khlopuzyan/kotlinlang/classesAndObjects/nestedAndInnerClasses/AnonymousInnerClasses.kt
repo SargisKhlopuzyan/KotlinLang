@@ -1,0 +1,76 @@
+package app.sargis.khlopuzyan.kotlinlang.classesAndObjects.nestedAndInnerClasses
+
+import app.sargis.khlopuzyan.kotlinlang.classesAndObjects.nestedAndInnerClasses.java.JavaFunctionalInterface
+
+
+/**
+ * Created by Sargis Khlopuzyan, on 2/13/2020.
+ *
+ * @author Sargis Khlopuzyan (sargis.khlopuzyan@fcc.am)
+ */
+
+fun main() {
+
+    val myAbstract = object : MyAbstract() {
+        override fun abstractFunction() {
+
+        }
+
+        /** OK **/
+//        override fun abstractNormalFunction() {
+//            abstractCompanionFunction()
+//        }
+
+    }
+
+    val myInterface = object : MyInterface {
+        override fun interfaceFunction() {
+
+        }
+
+        /** OK **/
+//        override fun interfaceDefaultFunction() {
+//            interfaceCompanionFunction()
+//        }
+    }
+
+    /**
+     * Note: on the JVM, if the object is an instance of a functional Java interface
+     * (i.e. a Java interface with a single abstract method), you can create it
+     * using a lambda expression prefixed with the type of the interface:
+     * */
+    val listenerJava = JavaFunctionalInterface {
+
+    }
+
+    // !! Error
+//    val listenerKotlin = KotlinFunctionalInterface {
+//
+//    }
+}
+
+abstract class MyAbstract {
+
+    open fun abstractNormalFunction() {}
+
+    abstract fun abstractFunction()
+
+    companion object {
+        fun abstractCompanionFunction() {}
+    }
+}
+
+interface MyInterface {
+
+    fun interfaceFunction()
+
+    fun interfaceDefaultFunction() {}
+
+    companion object {
+        fun interfaceCompanionFunction() {}
+    }
+}
+
+interface KotlinFunctionalInterface {
+    fun myFunctionalInterfaceFunction(): Int
+}
