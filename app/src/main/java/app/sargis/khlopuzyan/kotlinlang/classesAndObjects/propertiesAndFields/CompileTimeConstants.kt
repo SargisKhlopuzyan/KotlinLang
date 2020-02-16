@@ -27,7 +27,7 @@ fun foo() { /*...*/
 
 class MyTest {
 
-    lateinit var subject: TestSubject
+    private lateinit var subject: TestSubject
 
     fun setup() {
         subject = TestSubject()
@@ -39,7 +39,7 @@ class MyTest {
         }
     }
 
-    fun isInitialized() = ::subject.isInitialized
+    fun isInitialized() = true //TODO ::subject.isInitialized
 }
 
 class TestSubject {
