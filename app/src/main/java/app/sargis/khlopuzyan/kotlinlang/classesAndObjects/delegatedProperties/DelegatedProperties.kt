@@ -1,4 +1,4 @@
-package app.sargis.khlopuzyan.kotlinlang.classesAndObjects.delegation
+package app.sargis.khlopuzyan.kotlinlang.classesAndObjects.delegatedProperties
 
 import kotlin.reflect.KProperty
 
@@ -9,7 +9,8 @@ import kotlin.reflect.KProperty
  */
 
 fun main() {
-    val e = Example()
+    val e =
+        Example()
     println(e.p)
     e.p = "NEW"
 }

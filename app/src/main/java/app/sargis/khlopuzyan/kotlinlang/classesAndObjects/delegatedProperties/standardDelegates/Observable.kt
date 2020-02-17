@@ -1,4 +1,4 @@
-package app.sargis.khlopuzyan.kotlinlang.classesAndObjects.delegation.standardDelegates
+package app.sargis.khlopuzyan.kotlinlang.classesAndObjects.delegatedProperties.standardDelegates
 
 import kotlin.properties.Delegates
 

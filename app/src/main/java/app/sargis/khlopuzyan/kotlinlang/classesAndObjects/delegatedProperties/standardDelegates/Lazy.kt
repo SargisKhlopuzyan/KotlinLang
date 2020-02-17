@@ -1,4 +1,4 @@
-package app.sargis.khlopuzyan.kotlinlang.classesAndObjects.delegation.standardDelegates
+package app.sargis.khlopuzyan.kotlinlang.classesAndObjects.delegatedProperties.standardDelegates
 
 /**
  * Created by Sargis Khlopuzyan, on 2/17/2020.
