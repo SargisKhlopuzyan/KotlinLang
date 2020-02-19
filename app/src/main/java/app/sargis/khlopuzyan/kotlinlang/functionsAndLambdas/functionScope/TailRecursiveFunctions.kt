@@ -11,8 +11,13 @@ import kotlin.math.cos
 
 fun main() {
     val result = findFixPoint()
-
     println("result: $result")
+
+    val result1 = findFixPointError1()
+    println("result1: $result1")
+
+    val result2 = findFixPointError2()
+    println("result2: $result2")
 }
 
 /**
@@ -45,4 +50,24 @@ private fun findFixPoint(): Double {
         if (Math.abs(x - y) < eps) return x
         x = Math.cos(x)
     }
+}
+
+
+/**
+ * TODO IMPORTANT
+ * TODO WARNING!!  |  WRONG!!
+ * A function is marked as tails-recursive but no tail calls are found
+ * */
+tailrec fun findFixPointError1(x: Double = 1.0): Double =
+    if (abs(x - cos(x)) >= eps) findFixPoint(cos(x)) else x
+
+/**
+ * TODO IMPORTANT
+ * TODO WARNING!!  |  WRONG!!
+ * A function is marked as tails-recursive but no tail calls are found
+ * */
+tailrec fun findFixPointError2(x: Double = 1.0): Double = try {
+    x
+} catch (e: Exception) {
+    findFixPoint(cos(x))
 }
