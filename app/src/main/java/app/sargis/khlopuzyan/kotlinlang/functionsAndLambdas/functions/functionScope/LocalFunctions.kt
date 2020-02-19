@@ -1,4 +1,4 @@
-package app.sargis.khlopuzyan.kotlinlang.functionsAndLambdas.functionScope
+package app.sargis.khlopuzyan.kotlinlang.functionsAndLambdas.functions.functionScope
 
 /**
  * Created by Sargis Khlopuzyan, on 2/18/2020.

@@ -1,4 +1,4 @@
-package app.sargis.khlopuzyan.kotlinlang.functionsAndLambdas
+package app.sargis.khlopuzyan.kotlinlang.functionsAndLambdas.functions
 
 /**
  * Created by Sargis Khlopuzyan, on 2/18/2020.
@@ -39,7 +39,8 @@ fun main() {
     val x = 6 sha1 3
     println(x)
 
-    val myStringCollection = MyStringCollection()
+    val myStringCollection =
+        MyStringCollection()
 
     myStringCollection.add("abc")
     myStringCollection add "abc"

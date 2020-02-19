@@ -1,4 +1,4 @@
-package app.sargis.khlopuzyan.kotlinlang.functionsAndLambdas
+package app.sargis.khlopuzyan.kotlinlang.functionsAndLambdas.functions
 
 /**
  * Created by Sargis Khlopuzyan, on 2/17/2020.
@@ -7,7 +7,9 @@ package app.sargis.khlopuzyan.kotlinlang.functionsAndLambdas
  */
 
 fun main() {
-    printHello(null)
+    printHello(
+        null
+    )
 }
 
 /**

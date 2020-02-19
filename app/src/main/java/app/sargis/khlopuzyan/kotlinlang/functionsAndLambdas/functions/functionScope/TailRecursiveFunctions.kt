@@ -1,4 +1,4 @@
-package app.sargis.khlopuzyan.kotlinlang.functionsAndLambdas.functionScope
+package app.sargis.khlopuzyan.kotlinlang.functionsAndLambdas.functions.functionScope
 
 import kotlin.math.abs
 import kotlin.math.cos

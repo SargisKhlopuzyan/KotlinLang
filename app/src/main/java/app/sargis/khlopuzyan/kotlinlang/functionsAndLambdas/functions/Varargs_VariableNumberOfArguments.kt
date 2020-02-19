@@ -1,4 +1,4 @@
-package app.sargis.khlopuzyan.kotlinlang.functionsAndLambdas
+package app.sargis.khlopuzyan.kotlinlang.functionsAndLambdas.functions
 
 /**
  * Created by Sargis Khlopuzyan, on 2/18/2020.
@@ -6,18 +6,52 @@ package app.sargis.khlopuzyan.kotlinlang.functionsAndLambdas
  * @author Sargis Khlopuzyan (sargis.khlopuzyan@fcc.am)
  */
 fun main() {
-    val list1 = asList(1, 2, 3, 4)
-    val list2 = asListWithParametersInLeftSide(125, 1, 2, 3, 4)
+    val list1 =
+        asList(
+            1,
+            2,
+            3,
+            4
+        )
+    val list2 =
+        asListWithParametersInLeftSide(
+            125,
+            1,
+            2,
+            3,
+            4
+        )
     val list3 =
-        asListWithParametersInRightSide(1, 2, 3, 4, str = "abc", salary = 100000) //TODO IMPORTANT
+        asListWithParametersInRightSide(
+            1,
+            2,
+            3,
+            4,
+            str = "abc",
+            salary = 100000
+        ) //TODO IMPORTANT
 
-    val list4 = asListWithLambda(-1, 0, -2, 2, 3) {
-        it > 0
-    }
+    val list4 =
+        asListWithLambda(
+            -1,
+            0,
+            -2,
+            2,
+            3
+        ) {
+            it > 0
+        }
     println(list4)
 
     val intsList =  arrayOf(8, 9, 8, 5)
-    val list5 = asList(1, 2, *intsList, 3, 4)
+    val list5 =
+        asList(
+            1,
+            2,
+            *intsList,
+            3,
+            4
+        )
 }
 
 
