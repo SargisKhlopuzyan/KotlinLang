@@ -2,22 +2,22 @@ package app.sargis.khlopuzyan.kotlinlang.functionsAndLambdas.lambdas
 
 fun main() {
 
-//    val lambdaExpressionResult = lambdaExpression(5, 6)
-//    println("lambdaExpressionResult: $lambdaExpressionResult")
-//
-//    val anonymousFunctionResult = anonymousFunction(5, 6)
-//    println("anonymousFunctionResult: $anonymousFunctionResult")
-//
-//    //********************************************************
-//
-//    mainFunction1()
-//    mainFunction2()
+    val lambdaExpressionResult = lambdaExpression(5, 6)
+    println("lambdaExpressionResult: $lambdaExpressionResult")
+
+    val anonymousFunctionResult = anonymousFunction(5, 6)
+    println("anonymousFunctionResult: $anonymousFunctionResult")
+
+    //********************************************************
+
+    mainFunction1()
+    mainFunction2()
     mainFunction3()
 
     //********************************************************
 
-//    val functionTypeResult = functionType(5, 6)
-//    println("functionResult: $functionTypeResult")
+    val functionTypeResult = functionType(5, 6)
+    println("functionResult: $functionTypeResult")
 }
 
 /**
@@ -154,6 +154,7 @@ fun mainFunction2() {
     //**********************************************************************************
 
     // extension property version 2
+    // These include bound callable references that point to a member of a particular instance: foo::toString.
     println(myClass::extensionProperty.get())
     myClass::extensionProperty.set("It's a changed extension property")
     println(myClass::extensionProperty.get())
