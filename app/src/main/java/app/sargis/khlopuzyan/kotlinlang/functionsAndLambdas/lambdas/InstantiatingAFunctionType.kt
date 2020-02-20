@@ -2,20 +2,21 @@ package app.sargis.khlopuzyan.kotlinlang.functionsAndLambdas.lambdas
 
 fun main() {
 
-    val lambdaExpressionResult = lambdaExpression(5, 6)
-    println("lambdaExpressionResult: $lambdaExpressionResult")
-
-    val anonymousFunctionResult = anonymousFunction(5, 6)
-    println("anonymousFunctionResult: $anonymousFunctionResult")
+//    val lambdaExpressionResult = lambdaExpression(5, 6)
+//    println("lambdaExpressionResult: $lambdaExpressionResult")
+//
+//    val anonymousFunctionResult = anonymousFunction(5, 6)
+//    println("anonymousFunctionResult: $anonymousFunctionResult")
+//
+//    //********************************************************
+//
+//    mainFunction1()
+    mainFunction2()
 
     //********************************************************
 
-    mainFunction()
-
-    //********************************************************
-
-    val functionTypeResult = functionType(5, 6)
-    println("functionResult: $functionTypeResult")
+//    val functionTypeResult = functionType(5, 6)
+//    println("functionResult: $functionTypeResult")
 }
 
 /**
@@ -60,6 +61,8 @@ fun String.convertToInt(): Int {
 
 class MyClass {
 
+    var memberProperty = 6789
+
     //member function
     fun myMemberFunction(value: Int): String {
 
@@ -77,7 +80,8 @@ class MyClass {
 
 }
 
-fun mainFunction() {
+// a top-level, local, member, or extension function: ::isOdd, String::toInt,
+fun mainFunction1() {
 
     //a top-level function
     val funIssOdd = ::functionIsOdd
@@ -98,6 +102,63 @@ fun mainFunction() {
     //local function
     //TODO See in appendix *LocalFunction_1
 }
+
+
+// a top-level, member, or extension property: List<Int>::size,
+fun mainFunction2() {
+
+    // top-level property
+    println("$topLevelProperty")
+    ::topLevelProperty.set(15)
+    println("$topLevelProperty")
+    //or
+    val x = ::topLevelProperty.get()
+    println("$x")
+
+    //**********************************************************************************
+
+    // member property
+    val myClass = MyClass()
+    println(myClass::memberProperty.get())
+    myClass::memberProperty.set(12)
+    println(myClass::memberProperty.get())
+
+    //WARNING : property memberProperty (Kotlin reflection is not available)
+//    println(myClass::memberProperty)
+
+    //**********************************************************************************
+
+    //IMPORTANT - version 1 OR version 2 - TODO
+
+    // extension property version 1
+    println(MyClass::extensionProperty.get(myClass))
+    MyClass::extensionProperty.set(myClass, "It's a changed extension property")
+    println(MyClass::extensionProperty.get(myClass))
+
+    //WARNING - property extensionProperty (Kotlin reflection is not available)
+//    println(MyClass::extensionProperty)
+
+    //**********************************************************************************
+
+    // extension property version 2
+    println(myClass::extensionProperty.get())
+    myClass::extensionProperty.set("It's a changed extension property")
+    println(myClass::extensionProperty.get())
+
+    //WARNING - property extensionProperty (Kotlin reflection is not available)
+//    println(myClass::extensionProperty)
+}
+
+
+var topLevelProperty = 12345
+
+private var _extensionProperty: String = "It's an extension property"
+
+var MyClass.extensionProperty: String
+    get() = _extensionProperty
+    set(value) {
+        _extensionProperty = value
+    }
 
 //********************************************************
 
