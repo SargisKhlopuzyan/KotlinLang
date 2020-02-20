@@ -11,7 +11,8 @@ fun main() {
 //    //********************************************************
 //
 //    mainFunction1()
-    mainFunction2()
+//    mainFunction2()
+    mainFunction3()
 
     //********************************************************
 
@@ -77,6 +78,18 @@ class MyClass {
 
         return value.toString()
     }
+
+}
+
+class MyClassWithConstructor {
+
+    var memberProperty = 111111
+
+    constructor(x: Int) {
+        memberProperty = x
+    }
+
+    fun myFunction() {}
 
 }
 
@@ -159,6 +172,14 @@ var MyClass.extensionProperty: String
     set(value) {
         _extensionProperty = value
     }
+
+//********************************************************
+
+//a constructor: ::Regex
+fun mainFunction3() {
+    val myClassWithConstructor = ::MyClassWithConstructor
+    println(myClassWithConstructor(5555))
+}
 
 //********************************************************
 
