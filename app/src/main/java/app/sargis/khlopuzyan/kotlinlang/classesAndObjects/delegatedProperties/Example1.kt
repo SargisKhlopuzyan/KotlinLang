@@ -2,31 +2,27 @@ package app.sargis.khlopuzyan.kotlinlang.classesAndObjects.delegatedProperties
 
 import kotlin.reflect.KProperty
 
-/**
- * Created by Sargis Khlopuzyan, on 2/17/2020.
- *
- * @author Sargis Khlopuzyan (sargis.khlopuzyan@fcc.am)
- */
-
 fun main() {
-    val e =
-        Example1()
+    val e = Example1()
     println(e.p)
-    e.p = "NEW"
+    e.p = "OK"
 }
 
-class Example {
+class Example1 {
     var p: String by Delegate1()
 }
 
-class Delegate {
+class Delegate1 {
 
+//    operator fun getValue(thisRef: Example, property: KProperty<*>): String {
     operator fun getValue(thisRef: Any?, property: KProperty<*>): String {
         return "$thisRef, thank you for delegating '${property.name}' to me!"
     }
 
     operator fun setValue(thisRef: Any?, property: KProperty<*>, value: String) {
+//    operator fun setValue(thisRef: Example, property: KProperty<*>, value: String) {
         println("$value has been assigned to '${property.name}' in $thisRef.")
+
     }
 
 }
