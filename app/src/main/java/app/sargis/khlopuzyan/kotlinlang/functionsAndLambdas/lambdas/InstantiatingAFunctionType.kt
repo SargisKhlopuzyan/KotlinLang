@@ -13,7 +13,7 @@ fun main() {
     mainFunction1()
     mainFunction2()
     mainFunction3()
-
+    mainFunction4()
     //********************************************************
 
     val functionTypeResult = functionType(5, 6)
@@ -181,6 +181,65 @@ fun mainFunction3() {
     val myClassWithConstructor = ::MyClassWithConstructor
     println(myClassWithConstructor(5555))
 }
+
+//********************************************************
+
+/**
+ * INFO-IMPORTANT-TODO
+ * Using instances of a custom class that implements a function type as an interface:
+ */
+
+class IntTransformer : (Int) -> String {
+    override operator fun invoke(x: Int): String = x.toString()
+}
+
+class IntTransformer2 : (Int, Int) -> String {
+
+    override fun invoke(p1: Int, p2: Int): String {
+        return (p1 + p2).toString()
+    }
+}
+
+
+fun mainFunction4() {
+    val intTransformer: (Int) -> String = IntTransformer()
+    val intTransformer2 = IntTransformer()
+
+    println(intTransformer(4444))
+    println(intTransformer2(22))
+
+    val x = aFunction(5)
+    println("x: $x")
+
+    println("result: $result")
+}
+
+//********************************************************
+
+//INFO-TODO
+//The compiler can infer the function types for variables if there is enough information:
+val aFunction = { i: Int -> i + 1 } // The inferred type is (Int) -> Int
+
+//********************************************************
+
+/**
+ * INFO-TODO
+ * Non-literal values of function types with and without receiver are interchangeable,
+ * so that the receiver can stand in for the first parameter, and vice versa.
+ * For instance, a value of type (A, B) -> C can be passed or assigned where a A.(B) -> C is expected and the other way around:
+ * */
+
+val repeatFun: String.(Int) -> String = { times -> this.repeat(times) }
+val twoParameters: (String, Int) -> String = repeatFun // OK
+
+fun runTransformation(f: (String, Int) -> String): String {
+    return f("hello", 3)
+}
+val result = runTransformation(repeatFun) // OK
+
+
+// Note that a function type with no receiver is inferred by default, even if a variable is initialized with a reference to an extension function.
+// To alter that, specify the variable type explicitly.
 
 //********************************************************
 
