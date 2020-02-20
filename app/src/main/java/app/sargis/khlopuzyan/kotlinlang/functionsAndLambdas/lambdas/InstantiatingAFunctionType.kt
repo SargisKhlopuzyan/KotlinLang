@@ -53,14 +53,28 @@ fun functionIsOdd(value: Int): Boolean {
     return value % 2 == 0
 }
 
-
 //extension function
 fun String.convertToInt(): Int {
     return this.toInt()
 }
 
 class MyClass {
-    fun myLocalFunction(value: Int): String = value.toString()
+
+    //member function
+    fun myMemberFunction(value: Int): String {
+
+        //local function
+        fun myLocalFunction(value: Int): String = value.toString()
+
+        //TODO Appendix *LocalFunction_1
+        val localFunction = ::myLocalFunction
+        val stringValueLocalFunction = localFunction(987654321)
+        println("local function -> $stringValueLocalFunction")
+        //End of Appendix *LocalFunction_1
+
+        return value.toString()
+    }
+
 }
 
 fun mainFunction() {
@@ -68,12 +82,21 @@ fun mainFunction() {
     //a top-level function
     val funIssOdd = ::functionIsOdd
     val isOddResult = funIssOdd(552)
-    println("isOddResult: $isOddResult")
+    println("top-level function -> isOddResult: $isOddResult")
 
     //extension function
-    val funIntValue = String::convertToInt
-    val intValue = funIntValue("123456789")
-    println(intValue)
+    val extensionFunction = String::convertToInt
+    val intValueExtensionFunction = extensionFunction("123456789")
+    println("extension function -> $intValueExtensionFunction")
+
+    //member function
+    val myClass = MyClass()
+    val memberFunction = myClass::myMemberFunction
+    val stringValueMemberFunction = memberFunction(123456789)
+    println("member function -> $stringValueMemberFunction")
+
+    //local function
+    //TODO See in appendix *LocalFunction_1
 }
 
 //********************************************************
