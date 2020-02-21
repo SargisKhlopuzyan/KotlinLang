@@ -29,6 +29,13 @@ fun main() {
     myClass3.myFunction2 { x, y ->
         (x + y).toString()
     }
+
+    // It's very common that a lambda expression has only one parameter.
+    //If the compiler can figure the signature out itself, it is allowed not to declare the only parameter and omit ->.
+    // The parameter will be implicitly declared under the name it:
+    myClass3.myFunction3(4) {
+        it.toString()
+    }
 }
 
 class MyClass3 {
@@ -55,6 +62,14 @@ class MyClass3 {
         val y = 14
 
         if (lambda(x, x).startsWith("0", true)) {
+            println("x starts with 0")
+        } else {
+            println("x does not start with 0")
+        }
+    }
+
+    fun myFunction3(x: Int, lambda: (Int) -> String) {
+        if (lambda(x).startsWith("0", true)) {
             println("x starts with 0")
         } else {
             println("x does not start with 0")
