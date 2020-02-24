@@ -1,4 +1,4 @@
-package app.sargis.khlopuzyan.kotlinlang.collections
+package app.sargis.khlopuzyan.kotlinlang.collections.collectionsOverview
 
 /**
  * Created by Sargis Khlopuzyan, on 2/24/2020.
@@ -13,7 +13,12 @@ fun main() {
      * you can use a List<Rectangle> anywhere the List<Shape> is required.
      * In other words, the collection types have the same subtyping relationship as the element types.
      * */
-    val shapes: List<Shape> = listOf<Rectangle>(Rectangle(), Rectangle(), Rectangle(), Rectangle())
+    val shapes: List<Shape> = listOf<Rectangle>(
+        Rectangle(),
+        Rectangle(),
+        Rectangle(),
+        Rectangle()
+    )
 
     /**
      * INFO-TODO
@@ -23,8 +28,12 @@ fun main() {
      * */
 //    val rectangles: MutableList<Shape> = mutableListOf<Rectangle>(Rectangle(), Rectangle(), Rectangle()) //Error !! Required MutableList<Shape>, found MutableList<Rectangle>
 
-    printAll(setOf("a", "b", "c"))
-    printAll(listOf("a", "b", "c"))
+    printAll(
+        setOf("a", "b", "c")
+    )
+    printAll(
+        listOf("a", "b", "c")
+    )
 
     collectionMain()
     listMain()
@@ -73,9 +82,25 @@ fun List<String>.getShortWordsTo(shortWords: MutableList<String>, maxLength: Int
  * Two lists are considered equal if they have the same sizes and structurally equal elements at the same positions.
  */
 fun listMain() {
-    val bob = Person("Bob", 31)
-    val people = listOf<Person>(Person("Adam", 20), bob, bob)
-    val people2 = listOf<Person>(Person("Adam", 20), Person("Bob", 31), bob)
+    val bob =
+        Person(
+            "Bob",
+            31
+        )
+    val people = listOf<Person>(
+        Person(
+            "Adam",
+            20
+        ), bob, bob)
+    val people2 = listOf<Person>(
+        Person(
+            "Adam",
+            20
+        ),
+        Person(
+            "Bob",
+            31
+        ), bob)
     println(people == people2)
     bob.age = 32
     println(people == people2)

@@ -1,4 +1,4 @@
-package app.sargis.khlopuzyan.kotlinlang.collections
+package app.sargis.khlopuzyan.kotlinlang.collections.sequences
 
 /**
  * Created by Sargis Khlopuzyan, on 2/24/2020.
