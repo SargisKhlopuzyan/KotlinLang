@@ -5,7 +5,13 @@ package app.sargis.khlopuzyan.kotlinlang.collections
  *
  * @author Sargis Khlopuzyan (sargis.khlopuzyan@fcc.am)
  */
+
 fun main() {
+    rangesAndProgressionsMain()
+    rangeMain()
+}
+
+fun rangesAndProgressionsMain() {
 
     val i = 2
     if (i in 1..4) {  // equivalent of 1 <= i && i <= 4
@@ -34,3 +40,28 @@ fun main() {
         print(i)
     }
 }
+
+//* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+/**
+ * INFO-TODO
+ *
+ * To create a range for your class, call the rangeTo() function on the range start value and
+ * provide the end value as an argument. rangeTo() is often called in its operator form ..
+ * */
+fun rangeMain() {
+    val versionRange = Version(1, 1)..Version(3, 30)
+
+    println(Version(0, 9) in versionRange)
+    println(Version(4, 3) in versionRange)
+}
+
+class Version(var arg1: Int, var arg2: Int) : Comparable<Version> {
+
+    override fun compareTo(other: Version): Int {
+        return this.arg1.compareTo(other.arg1) and this.arg2.compareTo(other.arg2)
+    }
+}
+
+//* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
