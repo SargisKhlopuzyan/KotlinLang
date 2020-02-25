@@ -10,6 +10,7 @@ fun main() {
     mappingMain()
     zippingMain()
     associationMain()
+    flatteningMain()
 }
 
 fun mappingMain() {
@@ -126,3 +127,33 @@ fun parseFullName(fullName: String): FullName {
 }
 
 class FullName(var lastName: String, var firstName: String)
+
+/**
+ * Flattening
+ *
+ * INFO-TODO
+ * */
+fun flatteningMain() {
+
+    /**
+     * The flatten() function can be called on a collection of collections, for example, a List of Sets.
+     * The function returns a single List of all the elements of the nested collections.
+     * */
+    val numberSets = listOf(setOf(1, 2, 3), setOf(4, 5, 6), setOf(1, 2))
+    println(numberSets.flatten()) // [1, 2, 3, 4, 5, 6, 1, 2]
+
+    /**
+     * Another function – flatMap() provides a flexible way to process nested collections.
+     * It takes a function that maps a collection element to another collection.
+     * As a result, flatMap() returns a single list of its return values on all the elements.
+     * So, flatMap() behaves as a subsequent call of map() (with a collection as a mapping result) and flatten().
+     * */
+    val containers = listOf(
+        StringContainer(listOf("one", "two", "three")),
+        StringContainer(listOf("four", "five", "six")),
+        StringContainer(listOf("seven", "eight", "one"))
+    )
+    println(containers.flatMap { it.values }) // [one, two, three, four, five, six, seven, eight, one]
+}
+
+class StringContainer(var values: List<String>)
