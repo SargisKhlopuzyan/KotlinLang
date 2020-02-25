@@ -16,6 +16,7 @@ fun main() {
     bridgingBlockingAndNonBlockingWorldsMain()
     bridgingBlockingAndNonBlockingWorldsMain2()
     waitingForAJobMain()
+    structuredConcurrencyMain()
 }
 
 
@@ -87,10 +88,19 @@ fun waitingForAJobMain() = runBlocking {
     x = 3
     delay(4000L)
     x = 4
-    job.join() // wait until child coroutine completes
+//    job.join() // wait until child coroutine completes
     x = 5
 
     // Result
     // Hello, x: 1
     // World! x: 3
+}
+
+fun structuredConcurrencyMain() = runBlocking {
+    // launch a new coroutine in the scope of runBlocking
+    launch {
+        delay(1000L)
+        println("World!")
+    }
+    println("Hello,")
 }
