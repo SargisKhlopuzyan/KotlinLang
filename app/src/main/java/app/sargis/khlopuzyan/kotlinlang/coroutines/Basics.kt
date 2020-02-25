@@ -12,9 +12,10 @@ import kotlin.concurrent.thread
  * @author Sargis Khlopuzyan (sargis.khlopuzyan@fcc.am)
  */
 fun main() {
-//    yourFirstCoroutineMain()
-//    bridgingBlockingAndNonBlockingWorldsMain()
+    yourFirstCoroutineMain()
+    bridgingBlockingAndNonBlockingWorldsMain()
     bridgingBlockingAndNonBlockingWorldsMain2()
+    waitingForAJobMain()
 }
 
 
@@ -71,4 +72,25 @@ fun bridgingBlockingAndNonBlockingWorldsMain2() = runBlocking<Unit> {
     println("Hello,") // main coroutine continues here immediately
     delay(4000L)      // delaying for 2 seconds to keep JVM alive
     println("!!!!")
+}
+
+fun waitingForAJobMain() = runBlocking {
+    var x = 1
+    // launch a new coroutine and keep a reference to its Job
+    val job = GlobalScope.launch {
+        delay(1000L)
+        println("World! x: $x")
+        x = 2
+    }
+
+    println("Hello, x: $x")
+    x = 3
+    delay(4000L)
+    x = 4
+    job.join() // wait until child coroutine completes
+    x = 5
+
+    // Result
+    // Hello, x: 1
+    // World! x: 3
 }
