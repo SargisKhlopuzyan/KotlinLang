@@ -9,6 +9,7 @@ package app.sargis.khlopuzyan.kotlinlang.collections
 fun main() {
     mappingMain()
     zippingMain()
+    associationMain()
 }
 
 fun mappingMain() {
@@ -76,3 +77,52 @@ fun zippingMain() {
     val numberPairs = listOf("one" to 1, "two" to 2, "three" to 3, "four" to 4)
     println(numberPairs.unzip()) // ([one, two, three, four], [1, 2, 3, 4])
 }
+
+/**
+ * INFO-TODO
+ *
+ * Association
+ * */
+fun associationMain() {
+
+    /**
+     * The basic association function associateWith() creates a Map in which the elements of the original collection are keys,
+     * and values are produced from them by the given transformation function.
+     * If two elements are equal, only the last one remains in the map.
+     * */
+    val numbers = listOf("one", "two", "three", "four", "one")
+    println(numbers.associateWith { it.length })
+
+
+    /**
+     * For building maps with collection elements as values, there is the function associateBy().
+     * It takes a function that returns a key based on an element's value.
+     * If two elements are equal, only the last one remains in the map.
+     * associateBy() can also be called with a value transformation function.
+     * */
+    println(numbers.associateBy { it.first().toUpperCase() })
+    println(
+        numbers.associateBy(
+            keySelector = { it.first().toUpperCase() },
+            valueTransform = { it.length })
+    )
+
+    /**
+     * Another way to build maps in which both keys and values are somehow produced from collection elements is the function associate().
+     * It takes a lambda function that returns a Pair: the key and the value of the corresponding map entry.
+     *
+     * Note that associate() produces short-living Pair objects which may affect the performance.
+     * Thus, associate() should be used when the performance isn't critical or it's more preferable than other options.
+     * */
+    val names = listOf("Alice Adams", "Brian Brown", "Clara Campbell")
+    println(names.associate { name ->
+        parseFullName(name).let { it.lastName to it.firstName }
+    })
+}
+
+fun parseFullName(fullName: String): FullName {
+    val names = fullName.split(" ")
+    return FullName(names.first(), names.last())
+}
+
+class FullName(var lastName: String, var firstName: String)
