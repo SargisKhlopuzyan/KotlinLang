@@ -11,6 +11,7 @@ fun main() {
     zippingMain()
     associationMain()
     flatteningMain()
+    stringRepresentationMain()
 }
 
 fun mappingMain() {
@@ -157,3 +158,33 @@ fun flatteningMain() {
 }
 
 class StringContainer(var values: List<String>)
+
+/**
+ * String representation
+ *
+ * INFO-TODO
+ *
+ * If you need to retrieve the collection content in a readable format,
+ * use functions that transform the collections to strings: joinToString() and joinTo().
+ * */
+fun stringRepresentationMain() {
+
+    val numbers = listOf("one", "two", "three", "four")
+
+    println(numbers)
+    println(numbers.joinToString())
+
+    val listString = StringBuffer("The list of numbers: ")
+    numbers.joinTo(listString)
+    println(listString)
+
+    println(numbers.joinToString(separator = " | ", prefix = "start: ", postfix = " :end"))
+
+    // For bigger collections, you may want to specify the limit – a number of elements that will be included into result.
+    // If the collection size exceeds the limit, all the other elements will be replaced with a single value of the truncated argument.
+    val numbers1_100 = (1..100).toList()
+    println(numbers1_100.joinToString(limit = 10, truncated = "<...>"))
+
+    // Finally, to customize the representation of elements themselves, provide the transform function.
+    println(numbers.joinToString { "Element: ${it.toUpperCase()}"})
+}
