@@ -8,6 +8,7 @@ package app.sargis.khlopuzyan.kotlinlang.collections
 
 fun main() {
     filteringByPredicateMain()
+    partitioningMain()
 }
 
 fun filteringByPredicateMain() {
@@ -56,4 +57,19 @@ fun filteringByPredicateMain() {
     stringsWithNull.filterNotNull().forEach {
         println(it.length)   // length is unavailable for nullable Strings
     }
+}
+
+/**
+ * Another filtering function – partition() – filters a collection by a predicate
+ * and keeps the elements that don't match it in a separate list.
+ * So, you have a Pair of Lists as a return value: the first list
+ * containing elements that match the predicate and the second one
+ * containing everything else from the original collection.
+ * */
+fun partitioningMain() {
+    val numbers = listOf("one", "two", "three", "four")
+    val (match, rest) = numbers.partition { it.length > 3 }
+
+    println(match)
+    println(rest)
 }
