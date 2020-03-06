@@ -9,6 +9,7 @@ package app.sargis.khlopuzyan.kotlinlang.collections
 fun main() {
     filteringByPredicateMain()
     partitioningMain()
+    testingPredicatesMain()
 }
 
 fun filteringByPredicateMain() {
@@ -72,4 +73,35 @@ fun partitioningMain() {
 
     println(match)
     println(rest)
+}
+
+/**
+ * Finally, there are functions that simply test a predicate against collection elements:
+ *
+ * any() returns true if at least one element matches the given predicate.
+ * none() returns true if none of the elements match the given predicate.
+ * all() returns true if all elements match the given predicate. Note that all() returns true when called with
+ *       any valid predicate on an empty collection. Such behavior is known in logic as vacuous truth.
+ * */
+fun testingPredicatesMain() {
+    val numbers = listOf("one", "two", "three", "four")
+
+    println(numbers.any { it.endsWith("e") })
+    println(numbers.none { it.endsWith("a") })
+    println(numbers.all { it.endsWith("e") })
+
+    println(emptyList<Int>().all { it > 5 })   // vacuous truth
+
+    /**
+     * any() and none() can also be used without a predicate: in this case they just check the collection emptiness.
+     * any() returns true if there are elements and false if there aren't;
+     * none() does the opposite.
+     * */
+    val empty = emptyList<String>()
+
+    println(numbers.any())
+    println(empty.any())
+
+    println(numbers.none())
+    println(empty.none())
 }
