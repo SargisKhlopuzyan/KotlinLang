@@ -40,7 +40,7 @@ fun main() {
      * using a lambda expression prefixed with the type of the interface:
      * */
     val listenerJava =
-        _root_ide_package_.app.sargis.khlopuzyan.kotlinlang.v_1.classesAndObjects.nestedAndInnerClasses.java.JavaFunctionalInterface {
+        JavaFunctionalInterface {
 
         }
 
