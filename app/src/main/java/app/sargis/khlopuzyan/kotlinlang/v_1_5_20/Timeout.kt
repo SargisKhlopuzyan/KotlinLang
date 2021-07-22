@@ -1,8 +1,6 @@
 package app.sargis.khlopuzyan.kotlinlang.v_1_5_20
 
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.runBlocking
-import kotlinx.coroutines.withTimeoutOrNull
+import kotlinx.coroutines.*
 
 /**
  * Created by Sargis Khlopuzyan, on 7/21/2021.
@@ -11,7 +9,6 @@ import kotlinx.coroutines.withTimeoutOrNull
  */
 
 fun main() {
-
 //    runBlocking {
 //        withTimeout(1300) {
 //            repeat(1000) { i ->
@@ -42,6 +39,4 @@ fun main() {
         }
         println("Result is $result")
     }
-
-
 }
