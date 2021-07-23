@@ -9,7 +9,6 @@ import kotlinx.coroutines.*
  */
 fun main() {
     runBlocking {
-
         // context of the parent, main runBlocking coroutine
         launch {
             println("main runBlocking : I'm working in thread ${Thread.currentThread().name}")
