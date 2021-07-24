@@ -1,4 +1,4 @@
-package app.sargis.khlopuzyan.kotlinlang.v_1_5_20.coroutineContextAndDispatchers
+package app.sargis.khlopuzyan.kotlinlang.v_1_5_20.coroutines.coroutineContextAndDispatchers
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay

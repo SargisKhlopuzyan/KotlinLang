@@ -1,4 +1,4 @@
-package app.sargis.khlopuzyan.kotlinlang.v_1_5_20.debuggingCoroutinesAndThreads
+package app.sargis.khlopuzyan.kotlinlang.v_1_5_20.coroutines.debuggingCoroutinesAndThreads
 
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch

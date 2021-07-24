@@ -1,4 +1,4 @@
-package app.sargis.khlopuzyan.kotlinlang.v_1_5_20.composingSuspendingFunctions
+package app.sargis.khlopuzyan.kotlinlang.v_1_5_20.coroutines.composingSuspendingFunctions
 
 import kotlinx.coroutines.async
 import kotlinx.coroutines.coroutineScope
