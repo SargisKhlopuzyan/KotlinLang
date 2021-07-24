@@ -1,4 +1,4 @@
-package app.sargis.khlopuzyan.kotlinlang.v_1_5_20
+package app.sargis.khlopuzyan.kotlinlang.v_1_5_20.coroutines
 
 import kotlinx.coroutines.cancelAndJoin
 import kotlinx.coroutines.delay
