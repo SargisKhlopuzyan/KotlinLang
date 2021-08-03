@@ -14,18 +14,20 @@ fun main() {
     runBlocking {
 
         val channel = Channel<Int>()
-
         launch {
-            // this might be heavy CPU-consuming computation or async logic, we'll just send five squares
             for (x in 1..5) {
                 println("I'm sleeping $x ...")
-                delay(1500L)
+                delay(1500)
                 channel.send(x * x)
             }
+            channel.close() // we're done sending
         }
 
-        // here we print five received integers:
-        repeat(5) { println(channel.receive()) }
+        // here we print received values using `for` loop (until the channel is closed)
+        for (y in channel) {
+            println(y)
+        }
+
         println("Done!")
     }
 }
